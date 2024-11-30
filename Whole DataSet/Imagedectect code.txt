@@ -1,0 +1,76 @@
+import gradio as gr
+import h5py
+from tensorflow.keras.utils import img_to_array,load_img
+from tensorflow.keras.models import load_model # changed from keras.models to tensorflow.keras.models
+import numpy as np
+
+# Load the pre-trained model from the local path
+model_path = 'contentkeras_model.h5'
+model = load_model(model_path)  # Load the model here
+
+def predict_disease(image_file, model, all_labels)
+
+    try
+        # Load and preprocess the image
+        img = load_img(image_file, target_size=(224, 224))  # Use load_img from tensorflow.keras.utils
+        img_array = img_to_array(img)
+        img_array = np.expand_dims(img_array, axis=0)  # Add batch dimension
+        img_array = img_array  255.0  # Normalize the image
+
+        # Predict the class
+        predictions = model.predict(img_array)  # Use the loaded model here
+        predicted_class = np.argmax(predictions[0])
+
+        # Get the predicted class label
+        predicted_label = all_labels[predicted_class]
+
+        # Print the predicted label to the console
+
+        if predicted_label=='Normal skin'
+            predicted_label = predicted_label = h3 align=centerNormal skinh3brbr
+            h3no precautions neededh3
+          
+        
+        elif predicted_label=='Lumpy skin'
+            predicted_label = predicted_label = h3 align=centerLumpy skinh3brbr
+            h3Vaccinationbr
+Administer the Lumpy Skin Disease Virus Vaccine to healthy cattle as a preventive measure, especially in areas prone to outbreaks.h3
+          
+        elif predicted_label=='Foot & Mouth Diseases'
+            predicted_label = predicted_label = h3 align=centerFoot & Mouth Diseasesh3brbr
+            h3Vaccinationbr
+Ensure regular vaccination of cattle against FMD as per the recommended schedule in your region.
+Coordinate vaccination drives at the community or regional level to cover all susceptible livestock.h3
+          
+
+        else
+          predicted_label = h3 align=centerChoose Correct imageh3brbr
+          
+
+        return predicted_label
+
+
+    except Exception as e
+        print(fError {e})
+        return None
+
+# List of class labels
+all_labels = [
+    'Normal skin','Lumpy skin','Foot & Mouth Diseases'
+]
+
+# Define the Gradio interface
+def gradio_predict(image_file)
+    return predict_disease(image_file, model, all_labels)  # Pass the model to the function
+
+# Create a Gradio interface
+gr_interface = gr.Interface(
+    fn=gradio_predict,  # Function to call for predictions
+    inputs=gr.Image(type=filepath),  # Upload image as file path
+    outputs=html,  # Output will be the class label as text
+    title=cattle Disease Predictor,
+    description=Upload an image of a plant to predict the disease.,
+)
+
+# Launch the Gradio app
+gr_interface.launch(share=True)

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disease Detection and Early Warning System for Dairy Farms</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('https://www.example.com/cattle-results-background.jpg'); 
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #f5f5f5; /* Light gray text */
+            padding-top: 60px;
+        }
+        header, footer {
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            left: 0;
+        }
+        header {
+            top: 0;
+        }
+        footer {
+            bottom: 0;
+        }
+        main {
+            margin: 100px 20px 80px 20px;
+            background-color: rgba(0, 0, 0, 0.7); /* Dark background for results */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            color: white;
+        }
+        h1, h2 {
+            margin: 0 0 20px;
+            color: #FFD700; /* Gold title and headings */
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.8);
+            color: #333;
+        }
+        table th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50; /* Green button */
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .upload-another {
+            text-align: center;
+        }
+        .mentor {
+            margin-top: 20px;
+            font-size: 16px;
+            line-height: 1.5;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Disease Detection and Early Warning System for Dairy Farms</h1>
+    </header>
+
+    <main>
+        <h2>Cattle Disease Prediction Results</h2>
+        <table>
+            <tr>
+                <th>Cattle ID</th>
+                <th>Detected Disease</th>
+                <th>Precautions</th>
+            </tr>
+            {% for result in results %}
+            <tr>
+                <td>{{ result.cattle_id }}</td>
+                <td>{{ result.detected_disease }}</td>
+                <td>{{ result.precautions }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <div class="upload-another">
+            <a href="/">
+                <button type="button">Upload Another File</button>
+            </a>
+        </div>
+
+        <div class="mentor">
+            <strong>About Mentor:</strong><br>
+            S. Reshma<br>
+            Professor Dept Of CSE<br>
+            QIS College Of Engineering And Technology, Ongole
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2024 Disease Detection and Early Warning System for Dairy Farms</p>
+    </footer>
+</body>
+</html>

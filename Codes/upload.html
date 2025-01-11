@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disease Detection and Early Warning System for Dairy Farms</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0; /* Light gray background */
+            color: #333; /* Dark text for visibility */
+            font-weight: bold; /* Apply bold to all text */
+        }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6); /* Dark overlay to make text readable */
+            z-index: 1;
+        }
+        .title {
+            text-align: center;
+            font-size: 36px;
+            color: red; /* Solid red color for title */
+            margin-top: 30px;
+            z-index: 2;
+        }
+        .names-container {
+            display: flex;
+            justify-content: space-between;
+            width: 80%;
+            margin-top: 50px;
+            z-index: 2;
+        }
+        .name-column {
+            width: 45%;
+            text-align: left;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        /* Left-side names in blue */
+        .name-column.left {
+            background-color: #ffffff;
+            color: blue; /* Blue color for left-side names */
+        }
+        /* Right-side names in green */
+        .name-column.right {
+            background-color: #ffffff;
+            color: green; /* Green color for right-side names */
+        }
+        /* Center names in yellow */
+        .names-container {
+            background-color: yellow; /* Yellow color for center names section */
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .mentor {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #ffb6c1; /* Light pink color for mentor section */
+            border-radius: 10px;
+            width: 80%;
+            text-align: center;
+            z-index: 2;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            background-color: #ffffff; /* Solid white background for form */
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            margin-top: 40px;
+            z-index: 2;
+        }
+        label, input {
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+        input[type="file"] {
+            padding: 5px;
+            background-color: #fff;
+            border: 1px solid #ccc; /* Border for file input */
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px;
+            background-color: #4CAF50; /* Green button */
+            color: white;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #45a049; /* Slightly darker green on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay"></div>
+    <div class="title">
+        Disease Detection and Early Warning System for Dairy Farms
+    </div>
+    <div class="names-container">
+        <!-- Left Column (Blue) -->
+        <div class="name-column left">
+            <strong>Team Members (1 - 3):</strong><br><br>
+            M. Uday Shankar<br>22495a4402<br>mandeudayshankar@gmail.com<br><br>
+            G. Sairam<br>21491a4432<br>saigutlapalli123@gmail.com<br><br>
+            A. Prineeth Reddy<br>21491a4460<br>anamprineeth@gmail.com
+        </div>
+        <!-- Right Column (Green) -->
+        <div class="name-column right">
+            <strong>Team Members (4 - 6):</strong><br><br>
+            MD. Rehaan Ali<br>21491a4405<br>Rehaan06504@gmail.com<br><br>
+            J. Sucharitha<br>21491a4455<br>sucharithajajula@gmail.com<br><br>
+            M. Laasya Chowdary<br>21491a4412<br>laasya1210@gmail.com
+        </div>
+    </div>
+    <div class="mentor">
+        <strong>About Mentor:</strong><br>
+        S. Reshma<br>
+        Professor Dept Of CSE<br>
+        QIS College Of Engineering And Technology, Ongole
+    </div>
+    <form action="/predict_disease" method="POST" enctype="multipart/form-data">
+        <label for="file">Upload Cattle Disease Data CSV:</label>
+        <input type="file" name="file" id="file" accept=".csv" required>
+        <button type="submit">Predict Diseases</button>
+    </form>
+    <form action="https://5a1a35ea04bab9afb5.gradio.live/" target="_blank" method="GET">
+        <!-- Image Upload Section -->
+        <label for="image">Upload Cattle Skin Image for Detection:</label>
+        <input type="file" name="image" id="image" accept="image/*" disabled>
+        <!-- Instruction -->
+        <p style="font-size: 14px; color: #666;">This feature is hosted on an external page. Click below to access it.</p>
+        <!-- Button to Open Gradio App -->
+        <button type="submit">Open Image Detector</button>
+    </form>
+        
+</body>
+</html>
+<style>
